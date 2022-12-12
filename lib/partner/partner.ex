@@ -1,16 +1,20 @@
 defmodule Partner do
-
   @moduledoc """
 
   """
 
+  import Ecto.Changeset # This is the one that includes cast
+
   use Ecto.Schema
 
-#   id (UUID)
-#   name (string)
+
+  @required_fields ~w(name)a
+  @optional_fields ~w()a
 
   schema "partner" do
-    field :name, String
+    field :name, :string
+
+    timestamps()
   end
 
   def changeset(%__MODULE__{} = struct, attrs) do

@@ -17,11 +17,7 @@ defmodule TesteFalicitaPayWeb.Router do
 
   scope "/", TesteFalicitaPayWeb do
     pipe_through :browser
-
-    get "/", PageController, :index
-
-    post "/csv_report/:report_name", PageController, :create
-
+    post "/csv_report/:report_name", CSVController, :create
   end
 
   # Other scopes may use custom stacks.
