@@ -1,4 +1,8 @@
 defmodule Report do
+  @moduledoc """
+  Responsible for all the intelligence for handling the CSV.
+  """
+
   use Timex
 
   alias TesteFalicitaPay.Repo

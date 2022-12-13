@@ -1,6 +1,6 @@
 defmodule Partner do
   @moduledoc """
-
+  Partner module.
   """
 
   import Ecto.Changeset

@@ -49,7 +49,7 @@ defmodule TesteFalicitaPay.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:timex, "~> 3.0"},
-      {:csv, "~> 2.4"},
+      {:csv, "~> 2.4"}
     ]
   end
 

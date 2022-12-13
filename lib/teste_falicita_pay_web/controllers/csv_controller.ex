@@ -2,7 +2,6 @@ defmodule TesteFalicitaPayWeb.CSVController do
   use TesteFalicitaPayWeb, :controller
 
   def create(conn, params) do
-
     IO.puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
     IO.inspect(params)
     IO.puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@")

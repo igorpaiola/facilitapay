@@ -1,12 +1,11 @@
 defmodule Registration do
   @moduledoc """
-
+  Registration module.
   """
 
   import Ecto.Changeset
 
   use Ecto.Schema
-
 
   @required_fields ~w(name cpf email partner_id)a
 
