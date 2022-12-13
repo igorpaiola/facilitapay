@@ -7,6 +7,7 @@ defmodule Registration do
 
   use Ecto.Schema
 
+
   @required_fields ~w(name cpf email partner_id)a
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
@@ -17,7 +18,7 @@ defmodule Registration do
     field :cpf, :string
     field :email, :string
 
-    belongs_to :partner, Partner, type: :binary
+    belongs_to :partner, Partner, type: Ecto.UUID
 
     timestamps()
   end

@@ -53,7 +53,7 @@ defmodule Report do
   end
 
   defp csv_report(query, file_name) do
-    output_path = "/home/igor/Área de Trabalho/#{file_name}.csv"
+    output_path = "/home/igor/#{file_name}.csv"
 
     query
     |> CSV.encode(headers: @headers, separator: ?;)

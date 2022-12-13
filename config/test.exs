@@ -9,7 +9,7 @@ config :teste_falicita_pay, TesteFalicitaPay.Repo,
   username: "postgres",
   password: "postgres",
   hostname: "localhost",
-  database: "teste_falicita_pay_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "teste_falicita_pay_test",
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 
