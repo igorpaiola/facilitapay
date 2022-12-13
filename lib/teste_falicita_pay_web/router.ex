@@ -1,13 +1,14 @@
 defmodule TesteFalicitaPayWeb.Router do
-  alias TesteFalicitaPayWeb.PageController
+
   use TesteFalicitaPayWeb, :router
+
+  alias TesteFalicitaPayWeb.CSVController
 
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, {TesteFalicitaPayWeb.LayoutView, :root}
-    plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -15,8 +16,9 @@ defmodule TesteFalicitaPayWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", TesteFalicitaPayWeb do
+  scope "/" do
     pipe_through :browser
+
     post "/csv_report/:report_name", CSVController, :create
   end
 

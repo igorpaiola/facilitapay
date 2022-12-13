@@ -3,13 +3,13 @@ defmodule Partner do
 
   """
 
-  import Ecto.Changeset # This is the one that includes cast
+  import Ecto.Changeset
 
   use Ecto.Schema
 
 
   @required_fields ~w(name)a
-  @optional_fields ~w()a
+  @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "partner" do
     field :name, :string
