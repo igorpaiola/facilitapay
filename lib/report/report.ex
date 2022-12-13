@@ -1,11 +1,10 @@
 defmodule Report do
-
   use Timex
 
   alias TesteFalicitaPay.Repo
+  alias Ecto.UUID
 
   import Ecto.Query
-  import Enum
 
   @headers ~w(
     id
@@ -39,13 +38,16 @@ defmodule Report do
   end
 
   defp daily_registrations_by_partner(%{
-        "start_date" => start_date,
-        "end_date" => end_date,
-        "partner_id" => partner_id
-      }) do
+         "start_date" => start_date,
+         "end_date" => end_date,
+         "partner_id" => partner_id
+       }) do
+    start_date = Timex.parse!(start_date, "{YYYY}-{0M}-{0D}")
+    end_date = Timex.parse!(end_date, "{YYYY}-{0M}-{0D}")
+
     Registration
     |> where([r], fragment("? BETWEEN ? AND ?", r.inserted_at, ^start_date, ^end_date))
-    |> where([r], r.partner_id == ^partner_id)
+    |> where([r], r.partner_id == ^UUID.dump!(partner_id))
     |> Repo.all()
     |> csv_report("DailyRegistrationsByPartner")
   end
@@ -58,7 +60,6 @@ defmodule Report do
     |> Stream.into(File.stream!(output_path, [:write]))
     |> Stream.run()
 
-    output_path
+    {:ok, output_path}
   end
-
 end

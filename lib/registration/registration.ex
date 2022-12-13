@@ -7,25 +7,17 @@ defmodule Registration do
 
   use Ecto.Schema
 
-
   @required_fields ~w(name cpf email partner_id)a
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   @foreign_key_type :uuid
-
-  # id (UUID)
-  # partner_id (UUID)
-  # name (string)
-  # cpf (string)
-  # email (string)
-  # inserted_at (date/time)
 
   schema "registration" do
     field :name, :string
     field :cpf, :string
     field :email, :string
 
-    belongs_to :partner, Partner, type: :string
+    belongs_to :partner, Partner, type: :binary
 
     timestamps()
   end

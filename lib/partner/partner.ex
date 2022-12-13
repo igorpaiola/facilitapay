@@ -7,8 +7,8 @@ defmodule Partner do
 
   use Ecto.Schema
 
-
   @required_fields ~w(name)a
+
   @primary_key {:id, Ecto.UUID, autogenerate: true}
 
   schema "partner" do
@@ -22,5 +22,4 @@ defmodule Partner do
     |> cast(attrs, @required_fields)
     |> validate_required(@required_fields)
   end
-
 end

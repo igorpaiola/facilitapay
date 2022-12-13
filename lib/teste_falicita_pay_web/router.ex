@@ -1,5 +1,4 @@
 defmodule TesteFalicitaPayWeb.Router do
-
   use TesteFalicitaPayWeb, :router
 
   alias TesteFalicitaPayWeb.CSVController
