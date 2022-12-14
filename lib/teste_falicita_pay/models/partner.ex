@@ -1,4 +1,4 @@
-defmodule Partner do
+defmodule TesteFalicitaPay.Models.Partner do
   @moduledoc """
   Partner module.
   """

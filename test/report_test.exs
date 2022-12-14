@@ -1,6 +1,8 @@
 defmodule ReportTest do
   use ExUnit.Case
 
+  alias TesteFalicitaPay.Report
+
   setup do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(TesteFalicitaPay.Repo)
   end
@@ -12,7 +14,7 @@ defmodule ReportTest do
       "end_date" => "2023-12-12"
     }
 
-    assert Report.csv(params) == {:ok, "/home/igor/DailyRegistrations.csv"}
+    assert Report.csv(params) == {:ok, "/tmp/DailyRegistrations.csv"}
   end
 
   test "generate a DailyRegistrationsByPartner.csv" do
@@ -23,7 +25,7 @@ defmodule ReportTest do
       "partner_id" => "ccaade80-7a5b-11ed-a1eb-0242ac120002"
     }
 
-    assert Report.csv(params) == {:ok, "/home/igor/DailyRegistrationsByPartner.csv"}
+    assert Report.csv(params) == {:ok, "/tmp/DailyRegistrationsByPartner.csv"}
   end
 
   test "simulates an error, with incomplete header" do

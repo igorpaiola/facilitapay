@@ -2,13 +2,8 @@ defmodule TesteFalicitaPayWeb.CSVController do
   use TesteFalicitaPayWeb, :controller
 
   def create(conn, params) do
-    IO.puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-    IO.inspect(params)
-    IO.puts("@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-
-    with {:ok, result} <- Report.csv(params) do
-      conn
-      |> send_resp(:ok, result)
+    with {:ok, result} <- TesteFalicitaPay.Report.csv(params) do
+      send_download(conn, {:file, result})
     end
   end
 end

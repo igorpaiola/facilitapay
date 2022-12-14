@@ -1,4 +1,4 @@
-defmodule Registration do
+defmodule TesteFalicitaPay.Models.Registration do
   @moduledoc """
   Registration module.
   """
@@ -6,6 +6,8 @@ defmodule Registration do
   import Ecto.Changeset
 
   use Ecto.Schema
+
+  alias TesteFalicitaPay.Models.Partner
 
   @required_fields ~w(name cpf email partner_id)a
 
