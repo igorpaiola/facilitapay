@@ -54,7 +54,7 @@ To call the endpoint:
      {
       "start_date": "2021-05-20", 
       "end_date": "2023-12-12",
-      "partner_id": "ccaade80-7a5b-11ed-a1eb-0242ac120002"
+      "partner_id": "##PARTNER_ID_HERE##"
      }
 
 
