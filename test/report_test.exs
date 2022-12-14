@@ -1,4 +1,4 @@
-defmodule ReportTest do
+defmodule TesteFalicitaPay.ReportTest do
   use ExUnit.Case
 
   alias TesteFalicitaPay.Report
@@ -36,4 +36,14 @@ defmodule ReportTest do
 
     assert Report.csv(params) == {:error, :bad_request}
   end
+
+  test "simulates an error, with incomplete header" do
+    params = %{
+      "start_date" => "2021-05-20",
+      "end_date" => "2023-12-12"
+    }
+
+    assert Report.csv(params) == {:error, :bad_request}
+  end
+
 end
